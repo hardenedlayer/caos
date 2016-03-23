@@ -1,0 +1,14 @@
+<%= form_for(@session) do |f| %>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= text_field_tag 'mail', @user.mail %>
+  </div>
+  <div class="field">
+    <%= f.label 'Password' %><br>
+    <%= text_field_tag 'password' %>
+  </div>
+  <%= f.hidden_field :user_id %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

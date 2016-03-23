@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :login_required, except: [:new, :create]
 
   # GET /users
   # GET /users.json
@@ -21,13 +22,32 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def update_password
+    # http://stackoverflow.com/a/88341/1111002
+    @user.password = [*('a'..'z'),*('0'..'9')].shuffle[0,8].join
+    @user.password_at = Time.now
+    debug "PASSWORD -------------------------- #{@user.password}"
+  end
+
   # POST /users
   # POST /users.json
   def create
+    @user = User.find_by(mail: user_params[:mail])
+    if @user
+      update_password
+      @user.save
+      session[:user_id] = @user.id
+      return redirect_to @user
+    end
+
     @user = User.new(user_params)
+    @user.perms = ':guest:'
+    @user.name = @user.mail.split('@').first
+    update_password
 
     respond_to do |format|
       if @user.save
+        session[:user_id] = @user.id
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -64,7 +84,17 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      ### just for current_user
+      begin
+        @user = User.find(session[:user_id])
+        return if @user
+
+        @user = User.find(params[:id])
+      rescue
+        session.clear
+        flash[:error] = t'login_required'
+        return redirect_to new_user_url
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
