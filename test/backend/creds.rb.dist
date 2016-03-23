@@ -1,0 +1,7 @@
+CREDS = {
+  username: 'ACCOUNT:USER',
+  api_key: 'API_KEY',
+  network: :public,
+  datacenter: :hkg02
+}
+

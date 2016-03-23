@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/c12g/softlayer-object-storage-ruby
+  revision: 0069cd0a74c573a13f1594aff35f01d7bb81d872
+  specs:
+    softlayer-object-storage (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -49,6 +55,7 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.1)
+    configparser (0.1.4)
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.6.0)
@@ -113,6 +120,8 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    softlayer_api (3.2.1)
+      configparser (~> 0.1.2)
     spring (1.6.4)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
@@ -149,6 +158,8 @@ DEPENDENCIES
   rails (= 4.2.6)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  softlayer-object-storage!
+  softlayer_api
   spring
   sqlite3
   turbolinks
