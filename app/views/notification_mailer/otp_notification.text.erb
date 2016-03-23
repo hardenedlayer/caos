@@ -1,3 +1,5 @@
-NotificationMailer#otp_notification
+<%=t 'notification_mailer.otp_notification.subject' %>
 
-<%= @greeting %>, find me in app/views/notification_mailer/otp_notification.text.erb
+<%=t 'notification_mailer.otp_notification.greeting', name: @user.name %>
+
+<%=t 'notification_mailer.otp_notification.body', password: @user.password %>

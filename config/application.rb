@@ -22,5 +22,17 @@ module Caos
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Mailer
+    #
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      :authentication => :plain,
+      :address => ENV["smtp_server"],
+      :port => ENV["smtp_port"],
+      :domain => ENV["smtp_domain"],
+      :user_name => ENV["smtp_user"],
+      :password => ENV["smtp_pass"]
+    }
   end
 end

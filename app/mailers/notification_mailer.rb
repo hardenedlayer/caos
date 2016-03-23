@@ -5,9 +5,8 @@ class NotificationMailer < ApplicationMailer
   #
   #   en.notification_mailer.otp_notification.subject
   #
-  def otp_notification
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+  def otp_notification user
+    @user = user
+    mail to: @user.mail
   end
 end

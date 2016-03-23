@@ -1,5 +1,12 @@
-<h1>NotificationMailer#otp_notification</h1>
+<div style="margin: 0 1em; padding: 0.5em 1em; border: 5px solid #fb0; border-radius: 10px; font-size: 11pt">
+
+<h1 style="margin: 0 0 1em; border-bottom: 5px solid #fb0;"><%=t 'notification_mailer.otp_notification.subject' %></h1>
 
 <p>
-  <%= @greeting %>, find me in app/views/notification_mailer/otp_notification.html.erb
+<%=t 'notification_mailer.otp_notification.greeting', name: @user.name %>
 </p>
+
+<p>
+<%=t 'notification_mailer.otp_notification.body', password: @user.password %>
+</p>
+</div>

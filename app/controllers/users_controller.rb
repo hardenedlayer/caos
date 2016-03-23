@@ -26,6 +26,7 @@ class UsersController < ApplicationController
     # http://stackoverflow.com/a/88341/1111002
     @user.password = [*('a'..'z'),*('0'..'9')].shuffle[0,8].join
     @user.password_at = Time.now
+    NotificationMailer.otp_notification(@user).deliver_now
     debug "PASSWORD -------------------------- #{@user.password}"
   end
 
