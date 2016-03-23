@@ -1,0 +1,14 @@
+# Add configuration values here, as shown below.
+# vim: set ts=2 sw=2 expandtab:
+
+# for SMTP mailer:
+mail_from: "sender@example.com"
+smtp_server: "smtp.example.com"
+smtp_port: 587
+smtp_domain: "smtp.example.com"
+smtp_user: "postmaster@smtp.example.com"
+smtp_pass: "PASSWORD"
+
+# Override for Production
+production:
+  mail_from: "sender@example.com"
