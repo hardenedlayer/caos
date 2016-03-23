@@ -45,5 +45,6 @@ group :development do
   gem 'spring'
 end
 
+gem 'rails-i18n'
 gem 'softlayer_api'
 gem 'softlayer-object-storage', :git => 'https://github.com/c12g/softlayer-object-storage-ruby'
