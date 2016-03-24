@@ -1,8 +1,17 @@
 # Locale for English
+# vim: set ts=2 sw=2 expandtab:
 
 en:
-  notification_mailer:
-    otp_notification:
-      subject: "CAOS: OTP Notification"
-      greeting: "Hi, %{name}!"
-      body: "Your Password is '%{password}'"
+  i18n:
+    notification_mailer:
+      otp_notification:
+        subject: "CAOS: OTP Notification"
+        greeting: "Hi, %{name}!"
+        body: "Your Password is '%{password}'"
+    auth:
+      login_required: Login required
+      login_with_one_time_password: Login with One Time Password
+      invailid_password: Invalid password!
+      greeting: Hi! Nice to meet you!
+      logout: Logout
+      logged_out: Successfully logged out.

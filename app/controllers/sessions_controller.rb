@@ -28,14 +28,14 @@ class SessionsController < ApplicationController
       @session.login_at = Time.now
     else
       debug "Oops! login failed!"
-      flash[:error] = t(:invalid_password)
+      flash[:error] = 'i18n.auth.invalid_password'
       return redirect_to new_session_path
     end
 
     respond_to do |format|
       if @session.save
         session[:session] = @session.id
-        format.html { redirect_to @user, notice: t(:hello_nice_to_see_you) }
+        format.html { redirect_to @user, notice: 'i18n.auth.greeting' }
         format.json { render :show, status: :created, location: @session }
       else
         format.html { render :new }
@@ -51,7 +51,7 @@ class SessionsController < ApplicationController
     session.delete :session
     session.clear
     debug "session cleared: #{session.to_json}"
-    redirect_to root_path, notice: t(:successfully_logged_out)
+    redirect_to root_path, notice: 'i18n.auth.logged_out'
   end
 
   private

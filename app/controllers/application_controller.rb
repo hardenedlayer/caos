@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
     debug "session from session #{session[:session]}"
     debug "user_id from session #{session[:user_id]}"
     unless current_session
-      flash[:notice] = t'please_login_with_one_time_password'
+      flash[:notice] = 'i18n.auth.login_with_one_time_password'
       return redirect_to new_session_path
     end
     @current_session.logout_at = Time.now

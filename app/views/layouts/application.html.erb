@@ -9,11 +9,11 @@
 <body>
 
 <% if current_session %>
-  <%= link_to t(:logout), logout_url %>
+  <%= link_to t('i18n.auth.logout'), logout_url %>
 <% end %>
 
-<p id="notice"><%= notice %></p>
-<p id="error"><%= flash[:error] %></p>
+<p id="notice"><%= t notice %></p>
+<p id="error"><%= t flash[:error] %></p>
 
 <%= yield %>
 
