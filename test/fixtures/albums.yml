@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  username: MyString
+  api_key: MyString
+  network: MyString
+  datacenter: MyString
+  container: MyString
+  user_id: 
+
+two:
+  title: MyString
+  username: MyString
+  api_key: MyString
+  network: MyString
+  datacenter: MyString
+  container: MyString
+  user_id: 
