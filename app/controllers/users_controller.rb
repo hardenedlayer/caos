@@ -11,10 +11,14 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @albums = Album.all
   end
 
   # GET /users/new
   def new
+    if current_session && current_session.user
+      return redirect_to current_session.user
+    end
     @user = User.new
   end
 

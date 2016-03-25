@@ -14,7 +14,12 @@ class AlbumsController < ApplicationController
 
   # GET /albums/new
   def new
-    @album = Album.new
+    begin
+      @user = User.find(session[:user_id])
+      @album = @user.albums.new
+    rescue
+      return redirect_to root_path
+    end
   end
 
   # GET /albums/1/edit
@@ -28,7 +33,7 @@ class AlbumsController < ApplicationController
 
     respond_to do |format|
       if @album.save
-        format.html { redirect_to @album, notice: 'Album was successfully created.' }
+        format.html { redirect_to @album, notice: 'i18n.album.album_created' }
         format.json { render :show, status: :created, location: @album }
       else
         format.html { render :new }
@@ -42,7 +47,7 @@ class AlbumsController < ApplicationController
   def update
     respond_to do |format|
       if @album.update(album_params)
-        format.html { redirect_to @album, notice: 'Album was successfully updated.' }
+        format.html { redirect_to @album, notice: 'i18n.album.album_updated' }
         format.json { render :show, status: :ok, location: @album }
       else
         format.html { render :edit }
