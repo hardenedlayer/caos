@@ -10,6 +10,28 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
+    conn = SoftLayer::ObjectStorage::Connection.new({
+      username: @album.username,
+      api_key: @album.api_key,
+      network: @album.network.to_sym,
+      datacenter: @album.datacenter.to_sym
+    })
+    cont = conn.container(@album.container)
+    data = cont.search()
+
+    @items = []
+    data[:items].each do |item|
+      if not item['content_type'].eql? 'application/directory'
+        obj = cont.object(item['name'])
+        item['bytes'] = obj.bytes
+        item['last_modified'] = obj.last_modified
+        item['etag'] = obj.etag
+        item['src'] = obj.temp_url(30)
+        item['filename'] = File.basename(item['name'])
+        @items.push item
+        debug "ITEM #{item}"
+      end
+    end
   end
 
   # GET /albums/new

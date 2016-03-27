@@ -1,39 +1,27 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @album.title %>
-</p>
-
-<p>
-  <strong>Username:</strong>
-  <%= @album.username %>
-</p>
-
-<p>
-  <strong>Api key:</strong>
-  <%= @album.api_key %>
-</p>
-
-<p>
-  <strong>Network:</strong>
-  <%= @album.network %>
-</p>
-
-<p>
-  <strong>Datacenter:</strong>
-  <%= @album.datacenter %>
-</p>
-
-<p>
-  <strong>Container:</strong>
-  <%= @album.container %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @album.user %>
-</p>
-
-<%= link_to 'Edit', edit_album_path(@album) %> |
-<%= link_to 'Back', albums_path %>
+<h1><%= @album.title %></h1>
+<div class="caos album list" id="">
+  <div class="caos album discription">
+    <%= @album.datacenter %> / <%= @album.container %> / <%= @album.network %>
+    (<%= @album.user.name %>)
+  </div>
+  <div class="row">
+    <% (1..3).each do %>
+    <% @items.each do |item| %>
+    <div class="col-md-3">
+      <div class="thumbnail">
+        <%= image_tag item['src'] %>
+        <div class="caption">
+          <%= item['filename'] %>
+          <%= number_with_delimiter item['bytes'], delimiter: ',' %> bytes
+        </div>
+        <!--
+          <%= item['meta_album'] %>
+          <%= item['etag'] %>
+          <%= item['last_modified'] %>
+        -->
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>
