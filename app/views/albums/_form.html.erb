@@ -1,4 +1,4 @@
-<%= form_for(@album) do |f| %>
+<%= bootstrap_form_for(@album) do |f| %>
   <% if @album.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@album.errors.count, "error") %> prohibited this album from being saved:</h2>
@@ -11,32 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :username %><br>
-    <%= f.text_field :username %>
-  </div>
-  <div class="field">
-    <%= f.label :api_key %><br>
-    <%= f.text_field :api_key %>
-  </div>
-  <div class="field">
-    <%= f.label :network %><br>
-    <%= f.text_field :network %>
-  </div>
-  <div class="field">
-    <%= f.label :datacenter %><br>
-    <%= f.text_field :datacenter %>
-  </div>
-  <div class="field">
-    <%= f.label :container %><br>
-    <%= f.text_field :container %>
-  </div>
+  <%= f.text_field :title %>
+  <%= f.text_field :username %>
+  <%= f.text_field :api_key %>
+  <%= f.text_field :network %>
+  <%= f.text_field :datacenter %>
+  <%= f.text_field :container %>
   <%= f.hidden_field :user_id %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit t('i18n.album.create'), class: "btn btn-primary btn-block" %>
 <% end %>

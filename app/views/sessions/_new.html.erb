@@ -1,14 +1,14 @@
-<%= form_for(@session) do |f| %>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= text_field_tag 'mail', @user.mail %>
+<%= bootstrap_form_for(@session) do |f| %>
+  <div class="form-group has-feedback">
+    <%= f.label :user_id, class: 'control-label' %>
+    <%= text_field_tag 'mail', @user.mail, class: 'form-control' %>
+    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
   </div>
-  <div class="field">
-    <%= f.label 'Password' %><br>
-    <%= text_field_tag 'password' %>
+  <div class="form-group has-feedback">
+    <%= f.label 'Password', class: 'control-label' %>
+    <%= password_field_tag 'password', '', class: 'form-control' %>
+    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
   </div>
   <%= f.hidden_field :user_id %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit t('i18n.auth.login'), class: "btn btn-primary btn-block" %>
 <% end %>

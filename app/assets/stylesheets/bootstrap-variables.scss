@@ -1,21 +1,21 @@
 //## Font, line-height, and color for body text, headings, and more.
-$font-family-sans-serif:  "DejaVu Sans","Titillium Web","맑은 고딕","Malgun Gothic",sans-serif !default;
-$font-family-serif:       "DejaVu Serif", $font-family-sans-serif;
-$font-family-monospace:   "Source Code Pro", "Menlo", "Monaco", "Ubuntu Mono", "Courier New", monospace !default;
-$font-family-base:        $font-family-sans-serif !default;
+$font-family-sans-serif: "DejaVu Sans","Titillium Web","맑은 고딕","Malgun Gothic",sans-serif !default;
+$font-family-serif:      "DejaVu Serif", $font-family-sans-serif;
+$font-family-monospace:  "Source Code Pro", "Menlo", "Monaco", "Ubuntu Mono", "Courier New", monospace !default;
+$font-family-base:       $font-family-sans-serif !default;
 
-$font-size-base:          10.5pt !default;
-$font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
-$font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
-$font-size-h1:            floor(($font-size-base * 2.6)) !default; // ~36px
-$font-size-h2:            floor(($font-size-base * 2.15)) !default; // ~30px
-$font-size-h3:            ceil(($font-size-base * 1.7)) !default; // ~24px
-$font-size-h4:            ceil(($font-size-base * 1.25)) !default; // ~18px
-$font-size-h5:            $font-size-base !default;
-$font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
+$font-size-base:         10.5pt !default;
+$font-size-large:        ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-small:        ceil(($font-size-base * 0.85)) !default; // ~12px
+$font-size-h1:           floor(($font-size-base * 2.6)) !default; // ~36px
+$font-size-h2:           floor(($font-size-base * 2.15)) !default; // ~30px
+$font-size-h3:           ceil(($font-size-base * 1.7)) !default; // ~24px
+$font-size-h4:           ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-h5:           $font-size-base !default;
+$font-size-h6:           ceil(($font-size-base * 0.85)) !default; // ~12px
 
-$line-height-base:        1.428571429 !default;
-$line-height-computed:    floor(($font-size-base * $line-height-base)) !default;
+$line-height-base:       1.428571429 !default;
+$line-height-computed:   floor(($font-size-base * $line-height-base)) !default;
 
 //## Gray and brand colors for use across Bootstrap.
 $gray-base:              #000 !default;
@@ -25,19 +25,19 @@ $gray:                   lighten($gray-base, 33.5%) !default; // #555
 $gray-light:             lighten($gray-base, 46.7%) !default; // #777
 $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 
-$brand-primary:         darken(#428bca, 6.5%) !default; // #337ab7
-$brand-success:         #5cb85c !default;
-$brand-info:            #5bc0de !default;
-$brand-warning:         #f0ad4e !default;
-$brand-danger:          #d9534f !default;
+$brand-primary:          darken(#428bca, 6.5%) !default; // #337ab7
+$brand-success:          #5cb85c !default;
+$brand-info:             #5bc0de !default;
+$brand-warning:          #f0ad4e !default;
+$brand-danger:           #d9534f !default;
 
 //## most global styles.
-$body-bg:               $gray-darker !default;
-$text-color:            $gray-light !default;
+$body-bg:                $gray-darker !default;
+$text-color:             $gray-light !default;
 
-$link-color:            $brand-primary !default;
-$link-hover-color:      darken($link-color, 15%) !default;
-$link-hover-decoration: underline !default;
+$link-color:             $brand-primary !default;
+$link-hover-color:       darken($link-color, 15%) !default;
+$link-hover-decoration:  underline !default;
 
 //## feedback states and, by default, alerts.
 $state-success-text:   #3c763d !default;
@@ -54,11 +54,14 @@ $state-danger-bg:      #f2dede !default;
 $state-danger-border:  darken(adjust-hue($state-danger-bg, -10), 5%) !default;
 
 //## navigation
-$navbar-height:                    36px !default;
-$navbar-default-color:             #777 !default;
-$navbar-default-bg:                darken($body-bg, 8%) !default;
+$navbar-height:           36px !default;
+$navbar-default-color:    #777 !default;
+$navbar-default-bg:       darken($body-bg, 8%) !default;
 
 //## alert
-$alert-padding:               0.5rem !default;
-$alert-link-font-weight:      bold !default;
+$alert-padding:           0.5rem !default;
+$alert-link-font-weight:  bold !default;
 
+//## form
+$input-height-base:        ($line-height-computed + (2px * 2) + 2) !default;
+$form-group-margin-bottom: 10px !default;

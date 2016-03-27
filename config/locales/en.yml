@@ -9,9 +9,15 @@ en:
         greeting: "Hi, %{name}!"
         body: "Your Password is '%{password}'"
     auth:
+      login: Login
       login_required: Login required
       login_with_one_time_password: Login with One Time Password
       invailid_password: Invalid password!
       greeting: Hi! Nice to meet you!
       logout: Logout
       logged_out: Successfully logged out.
+    album:
+      new_album: New Album
+      create: Create
+      album_created: Album was successfully created.
+      album_updated: Album was successfully updated.

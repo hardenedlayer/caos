@@ -4,7 +4,8 @@ module I18nHelper
   rescue I18n::MissingTranslationData
     puts "\e[31m### LOCALE: #{I18n.locale}, #{key}, #{options}\e[0m"
     if key
-      key.split('.')[2..10].join(' ').split('_').join(' ').capitalize
+      rem = key.split('.')[2..10]
+      rem.join(' ').split('_').join(' ').capitalize if rem
     end
   end
   alias :t :translate

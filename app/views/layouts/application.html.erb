@@ -2,20 +2,99 @@
 <html>
 <head>
   <title>Caos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<% if current_session %>
-  <%= link_to t('i18n.auth.logout'), logout_url %>
+<div class="navbar navbar-toolbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to 'CAOS', root_url, class: "navbar-brand" %>
+    </div>
+    <% if current_session %>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><%= link_to t('i18n.album.new_album'), new_album_url %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About...<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Me</a></li>
+            <li><a href="#">Anothers</a></li>
+            <li><a href="#">CAOS</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+        </li>
+        <li><%= link_to t('i18n.auth.logout'), logout_url %></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+    <% end %>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="" style="margin: 0 auto; max-width: 500px;">
+    <% if notice %>
+    <div class="alert alert-warning" role="alert">
+      <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+      <%= t notice %>
+    </div>
+    <% end %>
+    <% if flash[:error] %>
+    <div class="alert alert-danger" role="alert">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <%= t flash[:error] %>
+    </div>
+    <% end %>
+  </div>
+  <% if current_session %>
+  <div style="float:right; width: 300px">
+    <h2><%= current_session.user.name %></h2>
+    <div><%= current_session.user.mail %></div>
+    <div>
+      <p><%= current_session.user.comment %></p>
+      <%= link_to 'Edit', edit_user_path(current_session.user) %>
+    </div>
+    <div>You are <%= current_session.user.perms %></div>
+    <div>
+      <!-- current_session.user.selections -->
+    </div>
+  </div>
+  <div style="padding-right: 310px">
+    <%= yield %>
+  </div>
+<% else %>
+  <%= yield %>
 <% end %>
+</div>
+<div class="footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4 text-right">
+        Powered by
+        <a href="http://rubyonrails.org/">Rails</a>,
+        <a href="https://github.com/twbs/bootstrap-sass">Bootstrap</a>,
+        <br>
+        and <a href="http://www.sauru.so">scinix</a>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p id="notice"><%= t notice %></p>
-<p id="error"><%= t flash[:error] %></p>
-
-<%= yield %>
 
 </body>
 </html>

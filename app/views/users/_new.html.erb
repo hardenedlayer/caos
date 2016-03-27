@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= bootstrap_form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,13 +11,8 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :mail %><br>
-    <%= f.text_field :mail %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.email_field :mail, icon: 'envelope' %>
+  <%= f.submit t('i18n.auth.login'), class: "btn btn-primary btn-block" %>
 <% end %>
 
 <%= @id %>

@@ -9,9 +9,15 @@ ko:
         greeting: "안녕하세요 %{name}님!"
         body: "이번 암호는 '%{password}' 입니다."
     auth:
+      login: 로그인
       login_required: 로그인하셔야 합니다.
       login_with_one_time_password: 일회용 암호로 로그인해주세요.
       invailid_password: 잘못된 암호입니다!
       greeting: 만나서 반갑습니다!
       logout: 로그아웃
       logged_out: 정상적으로 로그아웃 되었습니다.
+    album:
+      new_album: 새 앨범
+      create: 만들기
+      album_created: 앨범이 만들어졌습니다.
+      album_updated: 앨범이 변경되었습니다.
