@@ -25,7 +25,7 @@ $gray:                   lighten($gray-base, 33.5%) !default; // #555
 $gray-light:             lighten($gray-base, 46.7%) !default; // #777
 $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 
-$brand-primary:          darken(#428bca, 6.5%) !default; // #337ab7
+$brand-primary:          rgb(173, 29, 40) !default;
 $brand-success:          #5cb85c !default;
 $brand-info:             #5bc0de !default;
 $brand-warning:          #f0ad4e !default;
@@ -54,14 +54,22 @@ $state-danger-bg:      #f2dede !default;
 $state-danger-border:  darken(adjust-hue($state-danger-bg, -10), 5%) !default;
 
 //## navigation
-$navbar-height:           36px !default;
-$navbar-default-color:    #777 !default;
-$navbar-default-bg:       darken($body-bg, 8%) !default;
+$navbar-height:                   36px !default;
+$navbar-default-color:            lighten($text-color, 10%) !default;
+$navbar-default-bg:               darken($body-bg, 8%) !default;
+$navbar-default-link-hover-color: lighten($navbar-default-color, 20%) !default;
+$navbar-default-link-hover-bg:    lighten($navbar-default-bg, 10%) !default;
 
 //## alert
 $alert-padding:           0.5rem !default;
 $alert-link-font-weight:  bold !default;
 
 //## form
-$input-height-base:        ($line-height-computed + (2px * 2) + 2) !default;
+//$input-height-base:        ($line-height-computed + (2px * 2) + 2) !default;
 $form-group-margin-bottom: 10px !default;
+
+//## thumbnail
+$thumbnail-padding:           4px !default;
+$thumbnail-bg:                $body-bg !default;
+$thumbnail-border:            lighten($body-bg, 5%) !default;
+$thumbnail-caption-padding:   0 !default;
