@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#logout'
   resources :users
   resources :albums
+  get '/albums/:id/:object', to: 'albums#photo', as: 'photo',
+    constraints: { object: /.+/ }
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

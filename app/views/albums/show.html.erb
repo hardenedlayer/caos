@@ -9,7 +9,7 @@
     <% @items.each do |item| %>
     <div class="col-md-3">
       <div class="thumbnail">
-        <%= image_tag item['src'] %>
+        <%= image_tag photo_url(id: @album.id, object: item['object']) %>
         <div class="caption">
           <%= item['filename'] %>
           <%= number_with_delimiter item['bytes'], delimiter: ',' %> bytes

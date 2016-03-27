@@ -53,3 +53,4 @@ gem 'softlayer-object-storage', :git => 'https://github.com/c12g/softlayer-objec
 gem 'figaro'
 gem 'bootstrap-sass'
 gem 'bootstrap_form'
+gem 'mini_magick'
