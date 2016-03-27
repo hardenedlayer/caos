@@ -1,0 +1,21 @@
+/* Sticky footer styles -------------------------------------------------- */
+$footer-height:		60px;
+
+html { position: relative; min-height: 100%; }
+body { margin-bottom: $footer-height * 1.5; }
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: $footer-height;
+	background-color: $navbar-default-bg;
+	border-top: 1px solid $navbar-default-border;
+	color: $navbar-default-color;
+	padding-top: 0.4rem;
+	font-size: 0.9em;
+}
+/* Not required for template or sticky footer method. */
+
+body > .container,
+body > .container-fluid { padding-top: $navbar-height * 1.2; }
+//.footer > .container { padding: 0.5rem 1rem 0; }
