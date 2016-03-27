@@ -5,7 +5,6 @@
     (<%= @album.user.name %>)
   </div>
   <div class="row">
-    <% (1..3).each do %>
     <% @items.each do |item| %>
     <div class="col-md-3">
       <div class="thumbnail">
@@ -13,7 +12,7 @@
                                 etag: item['etag'],
                                 object: url_encode(item['object'])) %>
         <div class="caption">
-          <%= item['filename'] %>
+          <%= link_to item['filename'], item['src'] %><br/>
           <%= number_with_delimiter item['bytes'], delimiter: ',' %> bytes
         </div>
         <!--
@@ -23,7 +22,6 @@
         -->
       </div>
     </div>
-    <% end %>
     <% end %>
   </div>
 </div>
