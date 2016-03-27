@@ -28,15 +28,15 @@ class AlbumsController < ApplicationController
   end
 
   def photo
-    obj = cont.object(params[:object])
     FileUtils.mkpath('tmp/thumbs')
-    cache = "tmp/thumbs/#{obj.etag}-#{obj.escaped_name}"
+    cache = "tmp/thumbs/#{params[:etag]}-#{params[:object]}"
     debug cache
 
     if cache && File.exists?(cache)
       debug "File exists: #{cache}. using it!"
       image = MiniMagick::Image.open(cache)
     else
+      obj = cont.object(URI.decode(params[:object]))
       debug "Generate Thumb from #{obj.temp_url(30)}..."
       image = MiniMagick::Image.open(obj.temp_url(30))
       resize_with_crop(image, 200, 200)
