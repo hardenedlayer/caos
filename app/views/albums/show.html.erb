@@ -8,7 +8,7 @@
     <% @items.each do |item| %>
     <div class="col-md-3">
       <div class="thumbnail">
-        <%= image_tag photo_url(id: @album.id,
+        <%= image_tag thumb_path(id: @album.id,
                                 etag: item['etag'],
                                 object: url_encode(item['object'])) %>
         <div class="caption">

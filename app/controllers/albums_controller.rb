@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_action :set_album, only: [:show, :photo, :edit, :update, :destroy]
+  before_action :set_album, only: [:show, :thumb, :edit, :update, :destroy]
 
   # GET /albums
   # GET /albums.json
@@ -27,9 +27,9 @@ class AlbumsController < ApplicationController
     end
   end
 
-  def photo
-    FileUtils.mkpath('tmp/cache/photos')
-    cache = "tmp/cache/photos/#{params[:etag]}-thumb-#{params[:object]}"
+  def thumb
+    FileUtils.mkpath('tmp/cache/thumbs')
+    cache = "tmp/cache/thumbs/#{params[:etag]}-#{params[:object]}"
     debug cache
 
     if cache && File.exists?(cache)

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#logout'
   resources :users
   resources :albums
-  get '/albums/:id/:etag/:object', to: 'albums#photo', as: 'photo',
+  get '/albums/:id/:etag/:object', to: 'albums#thumb', as: 'thumb',
     constraints: { object: /.+/ }
   resources :selections
 
