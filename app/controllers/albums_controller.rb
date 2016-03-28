@@ -11,6 +11,8 @@ class AlbumsController < ApplicationController
   # GET /albums/1.json
   def show
     data = cont.search()
+    @selection = @album.selections.new
+    @selection.user_id = session[:user_id]
 
     @items = []
     data[:items].each do |item|

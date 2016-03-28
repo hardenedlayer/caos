@@ -21,3 +21,8 @@ ko:
       create: 만들기
       album_created: 앨범이 만들어졌습니다.
       album_updated: 앨범이 변경되었습니다.
+    selection:
+      selection: 선택
+      create: 선택 만들기
+      created: 선택이 만들어졌습니다.
+      updated: 선택이 변경되었습니다.

@@ -25,10 +25,14 @@ class SelectionsController < ApplicationController
   # POST /selections.json
   def create
     @selection = Selection.new(selection_params)
+    @selection.photos = Array.new
+    params[:photos].each do |k,v|
+      @selection.photos.push(eval(k))
+    end
 
     respond_to do |format|
       if @selection.save
-        format.html { redirect_to @selection, notice: 'Selection was successfully created.' }
+        format.html { redirect_to @selection, notice: 'i18n.selection.created' }
         format.json { render :show, status: :created, location: @selection }
       else
         format.html { render :new }

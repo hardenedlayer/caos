@@ -8,5 +8,9 @@
 </div>
 <div>
   <h1>Selections</h1>
-    selection here
+  <div>
+  <% @selections.each do |selection| %>
+    <div><%= link_to "#{selection.album.title}##{selection.id}", selection %></div>
+  <% end %>
+  </div>
 </div>

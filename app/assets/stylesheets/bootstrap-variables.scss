@@ -78,6 +78,10 @@ $thumbnail-bg:                $body-bg !default;
 $thumbnail-border:            lighten($body-bg, 5%) !default;
 $thumbnail-caption-padding:   0 !default;
 
+//## table
+$table-cell-padding:          2px 8px !default;
+$table-border-color:          lighten($body-bg, 20%) !default;
+
 //## screen size
 $screen-xs:                  480px !default;
 $screen-sm:                  600px !default;

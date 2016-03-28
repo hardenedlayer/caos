@@ -1,19 +1,19 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @selection.album.title %>#<%= @selection.id %></h1>
+<div class="caos album list" id="">
+  <div class="caos album discription">
+    <%= @selection.album.datacenter %> / <%= @selection.album.container %> / <%= @selection.album.network %>
+    (<%= @selection.album.user.name %>)
+  </div>
 
-<p>
-  <strong>User:</strong>
-  <%= @selection.user %>
-</p>
-
-<p>
-  <strong>Album:</strong>
-  <%= @selection.album %>
-</p>
-
-<p>
-  <strong>Photos:</strong>
-  <%= @selection.photos %>
-</p>
-
-<%= link_to 'Edit', edit_selection_path(@selection) %> |
-<%= link_to 'Back', selections_path %>
+  <div class="row">
+    <% @selection.photos.each do |p| %>
+    <div class="col-md-3">
+      <div class="thumbnail">
+        <%= image_tag thumb_path(id: @selection.album.id,
+                                etag: p[:etag],
+                                object: url_encode(p[:object])) %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

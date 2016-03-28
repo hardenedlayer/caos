@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @albums = Album.all
+    @selections = @user.selections
   end
 
   # GET /users/new

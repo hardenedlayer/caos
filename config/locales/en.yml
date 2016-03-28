@@ -21,3 +21,8 @@ en:
       create: Create
       album_created: Album was successfully created.
       album_updated: Album was successfully updated.
+    selection:
+      selection: Selection
+      create: Create
+      created: Selection was successfully created.
+      updated: Selection was successfully updated.

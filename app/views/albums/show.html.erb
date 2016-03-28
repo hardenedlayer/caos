@@ -4,6 +4,7 @@
     <%= @album.datacenter %> / <%= @album.container %> / <%= @album.network %>
     (<%= @album.user.name %>)
   </div>
+  <%= form_for(@selection) do |f| %>
   <div class="row">
     <% @items.each do |item| %>
     <div class="col-md-3">
@@ -13,6 +14,7 @@
                                 object: url_encode(item['object'])) %>
         <div class="caption">
           <%= link_to item['filename'], item['src'] %><br/>
+          <%= check_box_tag("photos[{etag: '#{item['etag']}', object: '#{item['object']}'}]") %>
           <%= number_with_delimiter item['bytes'], delimiter: ',' %> bytes
         </div>
         <!--
@@ -24,4 +26,8 @@
     </div>
     <% end %>
   </div>
+  <%= f.hidden_field :album_id %>
+  <%= f.hidden_field :user_id %>
+  <%= f.submit t('i18n.selection.create'), class: "btn btn-primary" %>
+  <% end %>
 </div>
