@@ -28,8 +28,8 @@ class AlbumsController < ApplicationController
   end
 
   def photo
-    FileUtils.mkpath('tmp/thumbs')
-    cache = "tmp/thumbs/#{params[:etag]}-#{params[:object]}"
+    FileUtils.mkpath('tmp/cache/photos')
+    cache = "tmp/cache/photos/#{params[:etag]}-thumb-#{params[:object]}"
     debug cache
 
     if cache && File.exists?(cache)

@@ -59,6 +59,10 @@ $navbar-default-color:            lighten($text-color, 10%) !default;
 $navbar-default-bg:               darken($body-bg, 8%) !default;
 $navbar-default-link-hover-color: lighten($navbar-default-color, 20%) !default;
 $navbar-default-link-hover-bg:    lighten($navbar-default-bg, 10%) !default;
+$navbar-default-toggle-hover-bg:     $navbar-default-link-hover-bg !default;
+$navbar-default-toggle-icon-bar-bg:  $navbar-default-color !default;
+$navbar-default-toggle-border-color: $navbar-default-bg !default;
+
 
 //## alert
 $alert-padding:           0.5rem !default;
@@ -73,3 +77,9 @@ $thumbnail-padding:           4px !default;
 $thumbnail-bg:                $body-bg !default;
 $thumbnail-border:            lighten($body-bg, 5%) !default;
 $thumbnail-caption-padding:   0 !default;
+
+//## screen size
+$screen-xs:                  480px !default;
+$screen-sm:                  600px !default;
+$screen-md:                  800px !default;
+$screen-lg:                  1200px !default;
