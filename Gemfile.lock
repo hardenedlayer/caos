@@ -1,5 +1,5 @@
 GIT
-  remote: https://github.com/c12g/softlayer-object-storage-ruby
+  remote: https://github.com/hardenedlayer/softlayer-object-storage-ruby
   revision: 0069cd0a74c573a13f1594aff35f01d7bb81d872
   specs:
     softlayer-object-storage (0.0.1)
