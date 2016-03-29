@@ -10,14 +10,15 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
-    data = cont.search()
+    set_container
+    data = @cont.search()
     @selection = @album.selections.new
     @selection.user_id = session[:user_id]
 
     @items = []
     data[:items].each do |item|
       if not item['content_type'].eql? 'application/directory'
-        obj = cont.object(item['name'])
+        obj = @cont.object(item['name'])
         item['bytes'] = obj.bytes
         item['last_modified'] = obj.last_modified
         item['etag'] = obj.etag
@@ -38,7 +39,8 @@ class AlbumsController < ApplicationController
       debug "File exists: #{cache}. using it!"
       image = MiniMagick::Image.open(cache)
     else
-      obj = cont.object(URI.decode(params[:object]))
+      set_container
+      obj = @cont.object(URI.decode(params[:object]))
       debug "Generate Thumb from #{obj.temp_url(30)}..."
       image = MiniMagick::Image.open(obj.temp_url(30))
       resize_with_crop(image, 200, 200)
@@ -112,14 +114,14 @@ class AlbumsController < ApplicationController
       params.require(:album).permit(:title, :username, :api_key, :network, :datacenter, :container, :user_id)
     end
 
-    def cont
+    def set_container
       conn = SoftLayer::ObjectStorage::Connection.new({
         username: @album.username,
         api_key: @album.api_key,
         network: @album.network.to_sym,
         datacenter: @album.datacenter.to_sym
       })
-      conn.container(@album.container)
+      @cont = conn.container(@album.container)
     end
 
     # https://gist.github.com/maxivak/3924976
