@@ -4,24 +4,25 @@
     <%= @album.datacenter %> / <%= @album.container %> / <%= @album.network %>
     (<%= @album.user.name %>)
   </div>
+  <style>
+.thumbnaia.background {
+  background-position: center;
+}
+  </style>
   <%= form_for(@selection) do |f| %>
   <div class="row">
     <% @items.each do |item| %>
     <div class="col-md-3">
-      <div class="thumbnail">
-        <%= image_tag thumb_path(id: @album.id,
-                                etag: item['etag'],
-                                object: url_encode(item['object'])) %>
-        <div class="caption">
-          <%= link_to item['filename'], item['src'] %><br/>
-          <%= check_box_tag("photos[{etag: '#{item['etag']}', object: '#{item['object']}'}]") %>
-          <%= number_with_delimiter item['bytes'], delimiter: ',' %> bytes
+      <div class="thumbnail background" style="background: url(<%=
+        thumb_path(id: @album.id,
+                   etag: item[:hash],
+                   object: url_encode(item[:name])) %>);">
+        <div style="height: 100px"></div>
+        <div class="caption" style="background: rgba(255, 255, 255, 0.3);">
+          <%= link_to item[:name], item[:src] %><br/>
+          <%= check_box_tag("photos[{etag: '#{item[:hash]}', object: '#{item[:name]}'}]") %>
+          <%= number_with_delimiter item[:bytes], delimiter: ',' %> bytes
         </div>
-        <!--
-          <%= item['meta_album'] %>
-          <%= item['etag'] %>
-          <%= item['last_modified'] %>
-        -->
       </div>
     </div>
     <% end %>

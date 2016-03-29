@@ -40,4 +40,12 @@ class ApplicationController < ActionController::Base
     @current_session.logout_at = Time.now
     @current_session.save
   end
+
+  def timing str
+    @t2 = Time.now
+    @t1 = @t2 if not defined? @t1
+    @t0 = @t2 if not defined? @t0
+    puts "### Timing: %9.6fs/%9.6fs for %s" % [(@t2 - @t0), (@t2 - @t1), str]
+    @t1 = @t2
+  end
 end

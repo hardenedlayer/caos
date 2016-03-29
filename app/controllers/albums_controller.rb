@@ -10,24 +10,26 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
+    timing "start"
     set_container
-    data = @cont.search()
+    timing "got connection and container!"
+
+    @items = []
+    @cont.objects_detail().each do |o|
+      if not o[1][:content_type].eql? 'application/directory'
+        item = Hash.new
+        item[:name] = o[0]
+        item = item.merge(o[1])
+        item[:src] = @cont.object_temp_url(item[:name], 30)
+        @items.push item
+        #debug "ITEM #{item}"
+        #timing "item #{item[:name]} processed!"
+      end
+    end
+    timing "ok, done!"
     @selection = @album.selections.new
     @selection.user_id = session[:user_id]
 
-    @items = []
-    data[:items].each do |item|
-      if not item['content_type'].eql? 'application/directory'
-        obj = @cont.object(item['name'])
-        item['bytes'] = obj.bytes
-        item['last_modified'] = obj.last_modified
-        item['etag'] = obj.etag
-        item['src'] = obj.temp_url(30)
-        item['filename'] = File.basename(item['name'])
-        @items.push item
-        debug "ITEM #{item}"
-      end
-    end
   end
 
   def thumb
@@ -43,7 +45,7 @@ class AlbumsController < ApplicationController
       obj = @cont.object(URI.decode(params[:object]))
       debug "Generate Thumb from #{obj.temp_url(30)}..."
       image = MiniMagick::Image.open(obj.temp_url(30))
-      resize_with_crop(image, 200, 200)
+      resize_with_crop(image, 180, 120)
       image.write(cache)
     end
     send_data image.to_blob, type: 'image/jpg', disposition: 'inline'
@@ -146,6 +148,7 @@ class AlbumsController < ApplicationController
         i.resize(op_resize)
         i.gravity(gravity)
         i.crop "#{w.to_i}x#{h.to_i}+#{w_offset}+#{h_offset}!"
+        i.auto_orient
       end
 
       img

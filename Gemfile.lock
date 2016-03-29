@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/hardenedlayer/softlayer-object-storage-ruby
-  revision: 0069cd0a74c573a13f1594aff35f01d7bb81d872
+  revision: ae84397a78bfeb7cdf2c774150dd156f6908d00f
   specs:
     softlayer-object-storage (0.0.1)
 
