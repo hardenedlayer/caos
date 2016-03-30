@@ -16,7 +16,7 @@ class AlbumsController < ApplicationController
 
     @items = []
     @cont.objects_detail().each do |o|
-      if not o[1][:content_type].eql? 'application/directory'
+      if not o[1][:content_type].eql? 'application/directory' and o[0][/jpg$/i]
         item = Hash.new
         item[:name] = o[0]
         item = item.merge(o[1])
