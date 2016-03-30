@@ -5,15 +5,13 @@ en:
   i18n:
     common:
       save: Save
-    notification_mailer:
-      otp_notification:
-        subject: "CAOS: OTP Notification"
-        greeting: "Hi, %{name}!"
-        body: "Your Password is '%{password}'"
+      edit: Edit
     auth:
+      welcome: Welcome!
       login: Login
       login_required: Login required
       login_with_one_time_password: Login with One Time Password
+      password: Password
       invailid_password: Invalid password!
       greeting: Hi! Nice to meet you!
       logout: Logout
@@ -29,3 +27,30 @@ en:
       save: Save as Selection
       created: Selection was successfully created.
       updated: Selection was successfully updated.
+    user:
+      edit_user:  Edit Information
+  notification_mailer:
+    otp_notification:
+      subject: "CAOS: OTP Notification"
+      greeting: "Hi, %{name}!"
+      body: "Your Password is '%{password}'"
+  activerecord:
+    models:
+      album:  Album
+      selection: Selection
+      session: Session
+      user: User
+    attributes:
+      user:
+        mail: Mail Address
+        name: Name
+        comment: Comment
+      session:
+        user_id: Mail Address
+      album:
+        title: Title
+        username: Username
+        api_key: API Key
+        network: Network
+        datacenter: Data Center
+        container: Container

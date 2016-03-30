@@ -5,15 +5,13 @@ ko:
   i18n:
     common:
       save: 저장
-    notification_mailer:
-      otp_notification:
-        subject: "CAOS: OTP 알림"
-        greeting: "안녕하세요 %{name}님!"
-        body: "이번 암호는 '%{password}' 입니다."
+      edit: 편집
     auth:
+      welcome: 어섭쑈!
       login: 로그인
       login_required: 로그인하셔야 합니다.
       login_with_one_time_password: 일회용 암호로 로그인해주세요.
+      password: 암호
       invailid_password: 잘못된 암호입니다!
       greeting: 만나서 반갑습니다!
       logout: 로그아웃
@@ -29,3 +27,30 @@ ko:
       save: 선택으로 저장
       created: 선택이 만들어졌습니다.
       updated: 선택이 변경되었습니다.
+    user:
+      edit_user: 정보 수정
+  notification_mailer:
+    otp_notification:
+      subject: "CAOS: OTP 알림"
+      greeting: "안녕하세요 %{name}님!"
+      body: "이번 암호는 '%{password}' 입니다."
+  activerecord:
+    models:
+      album: 앨범
+      selection: 선택
+      session: 세션
+      user: 사용자
+    attributes:
+      user:
+        mail: 메일주소
+        name: 이름
+        comment: 한마디
+      session:
+        user_id: 메일주소
+      album:
+        title: 제목
+        username: 사용자
+        api_key: API Key
+        network: 네트워크
+        datacenter: 데이터센터
+        container: 컨테이너

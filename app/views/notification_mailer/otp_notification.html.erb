@@ -1,12 +1,12 @@
-<div style="margin: 0 1em; padding: 0.5em 1em; border: 5px solid #fb0; border-radius: 10px; font-size: 11pt">
+<div style="margin: 0 0.5em; padding: 0.5em 1em; border: 5px solid #fb0; border-radius: 10px; font-size: 11pt">
 
-<h1 style="margin: 0 0 1em; border-bottom: 5px solid #fb0;"><%=t 'i18n.notification_mailer.otp_notification.subject' %></h1>
+<h1 style="margin: 0 0 1em; border-bottom: 5px solid #fb0;"><%=t 'notification_mailer.otp_notification.subject' %></h1>
 
 <p>
-<%=t 'i18n.notification_mailer.otp_notification.greeting', name: @user.name %>
+<%=t 'notification_mailer.otp_notification.greeting', name: @user.name %>
 </p>
 
 <p>
-<%=t 'i18n.notification_mailer.otp_notification.body', password: @user.password %>
+<%=t 'notification_mailer.otp_notification.body', password: @user.password %>
 </p>
 </div>

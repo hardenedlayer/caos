@@ -70,9 +70,9 @@
     <div><%= current_session.user.mail %></div>
     <div>
       <p><%= current_session.user.comment %></p>
-      <%= link_to 'Edit', edit_user_path(current_session.user) %>
+      <%= link_to t('i18n.common.edit'), edit_user_path(current_session.user) %>
     </div>
-    <div>You are <%= current_session.user.perms %></div>
+    <div><%= current_session.user.perms %></div>
     <div>
       <!-- current_session.user.selections -->
     </div>
