@@ -51,9 +51,15 @@
       <%= t notice %>
     </div>
     <% end %>
+    <% if alert %>
+    <div class="alert alert-warning" role="alert">
+      <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+      <%= t alert %>
+    </div>
+    <% end %>
     <% if flash[:error] %>
     <div class="alert alert-danger" role="alert">
-      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
       <%= t flash[:error] %>
     </div>
     <% end %>

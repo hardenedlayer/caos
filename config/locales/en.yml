@@ -3,6 +3,8 @@
 
 en:
   i18n:
+    common:
+      save: Save
     notification_mailer:
       otp_notification:
         subject: "CAOS: OTP Notification"
@@ -18,11 +20,12 @@ en:
       logged_out: Successfully logged out.
     album:
       new_album: New Album
-      create: Create
+      edit_album: Edit Album
       album_created: Album was successfully created.
       album_updated: Album was successfully updated.
+      not_permitted: Edit this album is not permitted to you!
     selection:
       selection: Selection
-      create: Create
+      save: Save as Selection
       created: Selection was successfully created.
       updated: Selection was successfully updated.

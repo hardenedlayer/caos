@@ -98,8 +98,7 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
       rescue
         session.clear
-        flash[:error] = 'i18n.auth.login_required'
-        return redirect_to new_user_url
+        return redirect_to new_user_url, alert: 'i18n.auth.login_required'
       end
     end
 

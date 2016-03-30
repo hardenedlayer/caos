@@ -28,8 +28,7 @@ class SessionsController < ApplicationController
       @session.login_at = Time.now
     else
       debug "Oops! login failed!"
-      flash[:error] = 'i18n.auth.invalid_password'
-      return redirect_to new_session_path
+      return redirect_to new_session_path, alert: 'i18n.auth.invalid_password'
     end
 
     respond_to do |format|

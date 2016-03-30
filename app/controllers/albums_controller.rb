@@ -63,6 +63,10 @@ class AlbumsController < ApplicationController
 
   # GET /albums/1/edit
   def edit
+    if @album.user_id != session[:user_id]
+      @album = nil
+      return redirect_to new_album_path, alert: 'i18n.album.not_permitted'
+    end
   end
 
   # POST /albums
