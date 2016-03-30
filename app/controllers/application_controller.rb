@@ -41,6 +41,22 @@ class ApplicationController < ActionController::Base
     @current_session.save
   end
 
+  def admin_required
+    if current_session and session[:user_id] == 1
+      session[:is_admin] = true
+    else
+      return redirect_to root_path, alert: 'i18n.auth.admin_only'
+    end
+  end
+
+  def is_owner id
+    if id == session[:user_id]
+      true
+    else
+      false
+    end
+  end
+
   def timing str
     @t2 = Time.now
     @t1 = @t2 if not defined? @t1

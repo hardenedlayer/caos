@@ -16,17 +16,21 @@ ko:
       greeting: 만나서 반갑습니다!
       logout: 로그아웃
       logged_out: 정상적으로 로그아웃 되었습니다.
+      admin_only: 나가요! 관리자 전용 공간이에요!
     album:
       new_album: 새 앨범
       edit_album: 앨범 수정
-      album_created: 앨범이 만들어졌습니다.
-      album_updated: 앨범이 변경되었습니다.
+      created: 앨범이 만들어졌습니다.
+      updated: 앨범이 변경되었습니다.
+      destroyed: 앨범이 삭제되었습니다.
       not_permitted: 이 앨범의 편집이 허용되지 않습니다!
+      not_yours: 당신 앨범이 아닌데? 응?
     selection:
       selection: 선택
       save: 선택으로 저장
       created: 선택이 만들어졌습니다.
       updated: 선택이 변경되었습니다.
+      destroyed: 선택이 삭제되었습니다.
     user:
       edit_user: 정보 수정
   notification_mailer:

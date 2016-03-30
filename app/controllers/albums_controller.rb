@@ -1,5 +1,6 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: [:show, :thumb, :edit, :update, :destroy]
+  before_action :admin_required, only: [:index]
 
   # GET /albums
   # GET /albums.json
@@ -29,7 +30,6 @@ class AlbumsController < ApplicationController
     timing "ok, done!"
     @selection = @album.selections.new
     @selection.user_id = session[:user_id]
-
   end
 
   def thumb
@@ -63,7 +63,7 @@ class AlbumsController < ApplicationController
 
   # GET /albums/1/edit
   def edit
-    if @album.user_id != session[:user_id]
+    unless is_owner @album.user_id
       @album = nil
       return redirect_to new_album_path, alert: 'i18n.album.not_permitted'
     end
@@ -76,7 +76,7 @@ class AlbumsController < ApplicationController
 
     respond_to do |format|
       if @album.save
-        format.html { redirect_to @album, notice: 'i18n.album.album_created' }
+        format.html { redirect_to @album, notice: 'i18n.album.created' }
         format.json { render :show, status: :created, location: @album }
       else
         format.html { render :new }
@@ -90,7 +90,7 @@ class AlbumsController < ApplicationController
   def update
     respond_to do |format|
       if @album.update(album_params)
-        format.html { redirect_to @album, notice: 'i18n.album.album_updated' }
+        format.html { redirect_to @album, notice: 'i18n.album.updated' }
         format.json { render :show, status: :ok, location: @album }
       else
         format.html { render :edit }
@@ -102,9 +102,14 @@ class AlbumsController < ApplicationController
   # DELETE /albums/1
   # DELETE /albums/1.json
   def destroy
+    unless is_owner @album.user_id
+      @album = nil
+      return redirect_to root_path, alert: 'i18n.album.not_yours'
+    end
+
     @album.destroy
     respond_to do |format|
-      format.html { redirect_to albums_url, notice: 'Album was successfully destroyed.' }
+      format.html { redirect_to albums_url, notice: 'i18n.album.destroyed' }
       format.json { head :no_content }
     end
   end

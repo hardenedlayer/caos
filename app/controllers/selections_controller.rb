@@ -46,7 +46,7 @@ class SelectionsController < ApplicationController
   def update
     respond_to do |format|
       if @selection.update(selection_params)
-        format.html { redirect_to @selection, notice: 'Selection was successfully updated.' }
+        format.html { redirect_to @selection, notice: 'i18n.selection.updated' }
         format.json { render :show, status: :ok, location: @selection }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class SelectionsController < ApplicationController
   def destroy
     @selection.destroy
     respond_to do |format|
-      format.html { redirect_to selections_url, notice: 'Selection was successfully destroyed.' }
+      format.html { redirect_to selections_url, notice: 'i18n.selection.destroyed' }
       format.json { head :no_content }
     end
   end
