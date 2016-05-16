@@ -26,6 +26,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:password])
       @session = @user.sessions.new(session_params)
       @session.login_at = Time.now
+      logger.info "ALERT #{@user.mail} logged in."
     else
       debug "Oops! login failed!"
       return redirect_to new_session_path, alert: 'i18n.auth.invalid_password'
