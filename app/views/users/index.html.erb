@@ -6,6 +6,7 @@
       <th>Mail</th>
       <th>Name</th>
       <th>Comment</th>
+      <th>Logins</th>
       <th>Password at</th>
       <th>Perms</th>
       <th colspan="3"></th>
@@ -18,16 +19,13 @@
         <td><%= user.mail %></td>
         <td><%= user.name %></td>
         <td><%= user.comment %></td>
-        <td><%= user.password_at %></td>
+        <td><%= user.sessions.count %></td>
+        <td><%= user.password_at.localtime.strftime("%Y-%m-%d %H:%M:%S") %></td>
         <td><%= user.perms %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'S', user %>
+        <%= link_to 'E', edit_user_path(user) %>
+        <%= link_to 'D', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New User', new_user_path %>
